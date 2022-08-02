@@ -5,10 +5,14 @@ import org.scalamock.scalatest.MockFactory
 class AccountTest extends AnyWordSpec with Matchers with MockFactory {
 
   "An Account" should {
-    "Have a method" which {
-      "Return a truthy value" in {
-        var account = new Account()
-        account.truthy() shouldBe true
+    "Deposit transactions" which {
+      "Can be found in the account transaction history" in {
+        val account = new Account()
+        account.deposit(100, "27/07/2022")
+        account.transactions.length shouldBe 1
+        account.transactions(0).balance shouldBe 100
+        account.transactions(0).amount shouldBe 100
+        account.transactions(0).transactionType shouldBe "credit"
       }
     }
   }

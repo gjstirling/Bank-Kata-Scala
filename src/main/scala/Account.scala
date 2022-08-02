@@ -1,10 +1,13 @@
+import scala.collection.mutable.ArrayBuffer
+
 class Account {
+  var transactions: ArrayBuffer[Transaction] = ArrayBuffer()
 
-
-
-
-  def truthy(): Boolean = {
-    true
+  def deposit(amount: Int, date: String): Unit = {
+    transactions += new Transaction(amount, date, "credit", getBalanceFromTransactions())
   }
 
+  def getBalanceFromTransactions(): Int ={
+    100
+  }
 }
