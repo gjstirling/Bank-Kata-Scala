@@ -6,12 +6,11 @@ object Statement {
 
   def print(transactions: ArrayBuffer[Transaction]): String ={
     var balance = 0
-    val transactionsArray = transactions.map(transaction => {
+    val transactionStrings = transactions.map(transaction => {
       balance += transaction.amount
-      println("the balance is:", balance)
       s"${formatInstant(transaction.date)} || ${transaction.amount}.00 || ${balance}.00\n"
     }).reverse.mkString("")
-    "date || amount || balance\n" + transactionsArray
+    "date || amount || balance\n" + transactionStrings
   }
 
   val formatInstant = (instant: Instant) => {
