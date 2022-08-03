@@ -1,6 +1,6 @@
 import java.time.Instant
 
-class Account(val ledger: Ledger = new Ledger()) {
+class Account(val ledger: Ledger = new Ledger(), val statementFactory: StatementBase[String] = Statement) {
 
   def deposit(amount: Int, date: Instant): Unit = {
     ledger.history.append(new Transaction(amount, date, "credit"))
@@ -16,7 +16,7 @@ class Account(val ledger: Ledger = new Ledger()) {
   }
 
   def printStatement(): String ={
-    Statement.print(ledger.history)
+    statementFactory.print(ledger.history)
   }
 
   def balance: Double = {

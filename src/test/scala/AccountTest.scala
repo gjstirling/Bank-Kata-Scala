@@ -62,10 +62,17 @@ class AccountTest extends AnyWordSpec with Matchers with MockFactory {
 
       // TODO: Mock Statement static print method's return
       "Prints a list of transactions" in {
+//        val mockStatement = mock[StatementBase[String]]
+//        val mockFormattedStatement = "date || amount || balance\n28/07/2022 || -25.00 || 75.00\n28/07/2022 || 100.00 || 100.00\n"
+//        val mockLedger = new Ledger()
+//        (Statement.print _).expects(mockLedger.history).returning(mockFormattedStatement)
+//        val account = new Account(mockLedger, mockStatement)
         val account = new Account()
+
         val mockTime = "2022-07-28T14:35:00Z"
         val fixedClock = Clock.fixed(Instant.parse(mockTime), ZoneId.systemDefault())
         val date = Instant.now(fixedClock)
+
         account.deposit(100, date)
         account.withdraw(25, date)
         account.printStatement() shouldBe "date || amount || balance\n28/07/2022 || -25.00 || 75.00\n28/07/2022 || 100.00 || 100.00\n"

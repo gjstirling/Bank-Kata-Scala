@@ -2,7 +2,11 @@ import java.time.format.DateTimeFormatter
 import java.time.{Instant, ZoneId}
 import scala.collection.mutable.ArrayBuffer
 
-object Statement {
+trait StatementBase[T] {
+  def print(transactions: ArrayBuffer[Transaction]): T
+}
+
+object Statement extends StatementBase[String] {
 
   def print(transactions: ArrayBuffer[Transaction]): String ={
     var balance = 0
@@ -17,7 +21,5 @@ object Statement {
     val dateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy").withZone(ZoneId.systemDefault())
     dateTimeFormatter.format(instant)
   }
-
-
 
 }
