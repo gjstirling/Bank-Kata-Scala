@@ -5,9 +5,12 @@ import scala.collection.mutable.ArrayBuffer
 object Statement {
 
   def print(transactions: ArrayBuffer[Transaction]): String ={
+    var balance = 0
     val transactionsArray = transactions.map(transaction => {
-      s"${formatInstant(transaction.date)} || ${transaction.amount}.00 || 100.00\n"
-    }).mkString("")
+      balance += transaction.amount
+      println("the balance is:", balance)
+      s"${formatInstant(transaction.date)} || ${transaction.amount}.00 || ${balance}.00\n"
+    }).reverse.mkString("")
     "date || amount || balance\n" + transactionsArray
   }
 
