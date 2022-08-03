@@ -53,6 +53,13 @@ class AccountTest extends AnyWordSpec with Matchers with MockFactory {
         account.balance shouldBe 75
       }
     }
+
+    "Can return bank statements" which {
+      "Returns a header" in {
+        val account = new Account()
+        account.printStatement() shouldBe "date || amount || balance\n"
+      }
+    }
   }
 
 }

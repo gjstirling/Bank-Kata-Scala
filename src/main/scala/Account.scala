@@ -1,5 +1,4 @@
 import java.time.Instant
-import scala.collection.mutable.ArrayBuffer
 
 class Account(val ledger: Ledger = new Ledger()) {
 
@@ -8,8 +7,7 @@ class Account(val ledger: Ledger = new Ledger()) {
   }
 
   def withdraw(amount: Int, date: Instant): Unit = {
-    val checkBalance = balance
-    if (amount > checkBalance){
+    if (amount > balance){
       throw new IllegalArgumentException(
         "Balance too low, transaction cancelled"
       )
@@ -17,10 +15,11 @@ class Account(val ledger: Ledger = new Ledger()) {
     ledger.history.append(new Transaction(-amount, date, "debit"))
   }
 
-  def balance: Double = {
-    ledger.history.foldLeft(0.0) { (balance, transactionHistory) => balance + transactionHistory.amount}
+  def printStatement(): String ={
+    "date || amount || balance\n"
   }
 
-
-
+  def balance: Double = {
+    ledger.history.foldLeft(0.0) { (balance, transaction) => balance + transaction.amount}
+  }
 }
