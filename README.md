@@ -1,9 +1,6 @@
-# Scala Template
+# Bank Kata in Scala
 
-```
-Duplicate file 
-Rename it 
-Initialze a new git repo
-make first commit 
-Push to version control
-```
+## Description 
+
+Completing the kata using the best of an OO and functional approaches
+
