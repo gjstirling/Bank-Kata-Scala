@@ -16,7 +16,7 @@ class Account(val ledger: Ledger = new Ledger()) {
   }
 
   def printStatement(): String ={
-    "date || amount || balance\n"
+    Statement.print(ledger.history)
   }
 
   def balance: Double = {
