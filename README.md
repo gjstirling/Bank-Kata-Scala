@@ -1,9 +1,3 @@
-# Scala Template
+# Bank Tech Test Scala
 
-```
-Duplicate file 
-Rename it 
-Initialze a new git repo
-make first commit 
-Push to version control
-```
+## See Branch "first-attempt" 
