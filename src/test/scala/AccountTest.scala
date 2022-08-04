@@ -60,8 +60,9 @@ class AccountTest extends AnyWordSpec with Matchers with MockFactory {
         account.printStatement() shouldBe "date || amount || balance\n"
       }
 
-      // TODO: Mock Statement static print method's return
+
       "Prints a list of transactions" in {
+        // TODO: Mock Statement static print method's return
 //        val mockStatement = mock[StatementBase[String]]
 //        val mockFormattedStatement = "date || amount || balance\n28/07/2022 || -25.00 || 75.00\n28/07/2022 || 100.00 || 100.00\n"
 //        val mockLedger = new Ledger()

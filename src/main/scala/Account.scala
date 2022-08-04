@@ -1,4 +1,4 @@
-import java.time.Instant
+import java.time.{Instant}
 
 class Account(val ledger: Ledger = new Ledger(), val statementFactory: StatementBase[String] = Statement) {
 
@@ -23,3 +23,4 @@ class Account(val ledger: Ledger = new Ledger(), val statementFactory: Statement
     ledger.history.foldLeft(0.0) { (balance, transaction) => balance + transaction.amount}
   }
 }
+
