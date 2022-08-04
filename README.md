@@ -2,7 +2,7 @@
 
 ## Description 
 
-Completing the kata using the best of an OO and functional approaches
+Completing the kata using the best of an OO and functional approaches.
 
 ## Usage 
 
