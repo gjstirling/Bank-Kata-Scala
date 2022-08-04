@@ -7,9 +7,9 @@ Completing the kata using the best of an OO and functional approaches
 ## Usage 
 
 Clone this reposistory 
-To see example usage of program run this command: 
+To see example usage of program run this command to run the tests: 
 ```
-scala ./src/main/scala/requirements.scala
+sbt test
 ```
 
 ## Feedback/Improvements 
